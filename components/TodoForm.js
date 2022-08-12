@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 
 function TodoForm() {
-    const [input, setInput] = useState['']
+    const [input, setInput] = useState([])
 
     return (
         <form>
@@ -10,7 +10,8 @@ function TodoForm() {
                 placeholder="Add a task"
                 value={input}
                 name="text"
-                className="" />
+                className="border" />
+            <button className="bg-blue-600 text-white font-bold py-1 px-2">Add Task</button>
         </form>
     )
 }
