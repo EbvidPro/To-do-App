@@ -34,12 +34,12 @@ export default function Home() {
 
   // }
   return (
-    <div className="block m-0 p-0 bg-gray-200">
+    <div className="block m-0 pt-20 bg-gray-200 h-full">
       <Head>
         <title>To Do App</title>
         <meta name="description" content="To Do list " />
       </Head>
-      <main className="flex bg-green-200 m-auto xl:w-1/4 md:w-2/4 w-4/5 text-center">
+      <main className="flex justify-center max-h-fit h-72 bg-green-200 m-auto xl:w-1/4 md:w-2/4 w-4/5 ">
         <TodoForm />
       </main>
       {/* <main className='pb-24'>
