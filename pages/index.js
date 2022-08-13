@@ -34,7 +34,7 @@ export default function Home() {
 
   // }
   return (
-    <div className="block m-0 pt-20 bg-gray-200 h-full">
+    <div className="block m-0 pt-20 pb-20 bg-gray-200 min-h-screen">
       <Head>
         <title>To Do App</title>
         <meta name="description" content="To Do list " />
@@ -51,19 +51,6 @@ export default function Home() {
           O left to Do
         </div>
       </main> */}
-
-      <footer className="flex h-24 w-full self-center justify-center border-t">
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
     </div>
   )
 }
