@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { useState, useRef, useEffect } from 'react'
 import TodoList from '../components/TodoList'
 import { v4 } from 'uuid';
-import TodoForm from '../components/TodoForm';
+
 
 
 const LOCAL_STORAGE_KEY = 'todoApp.todo'
@@ -40,7 +40,7 @@ export default function Home() {
         <meta name="description" content="To Do list " />
       </Head>
       <main className="flex justify-center max-h-fit h-72 bg-green-200 m-auto xl:w-1/4 md:w-2/4 w-4/5 ">
-        <TodoForm />
+        <TodoList />
       </main>
       {/* <main className='pb-24'>
         <TodoList todoList={todo} />

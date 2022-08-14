@@ -1,18 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
+import TodoForm from './TodoForm'
 
-export default function TodoList({ todoList }) {
+function TodoList() {
+    const [todos, setTodos] = useState([])
+
+    const addTodo = todo => {
+        if (!todo.text || /^\s*$/.test(todo.text)) {
+            return
+        }
+
+        const newTodo = [todo, ...todos]
+
+        setTodos(newTodo)
+        console.log(...todos)
+    }
+
     return (
-        <div>
-            {todoList.map(todo => {
-                return (
-                    <div key={todo.id}>
-                        <label>
-                            <input type='checkbox' />
-                            {todo.name}
-                        </label>
-                    </div>
-                )
-            })}
+        <div className='text-center italic pt-6'>
+            <h1>What&apos;s the Plan for Today</h1>
+            <TodoForm onSubmit={addTodo} />
         </div>
     )
 }
+
+export default TodoList
