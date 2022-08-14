@@ -12,18 +12,23 @@ function Todo({ todos, completeTodo }) {
         values: ''
     })
 
-    return todos.map((todo, index) => {
-        <div className={todo.isComplete ? 'todo-row complete' : 'todo-row'} key={index}>
-            <div key={todo.id} className='block text-black'>
-                {todo.text}
-                {console.log(todo.text)}
-            </div>
-            <div>
-                <RiCloseCircleLine />
-                <TiEdit />
-            </div>
-        </div>
-    })
+    return (
+        todos.map((todo, index) => {
+            return (
+                <div key={index}>
+                    <div key={todo.id} className='block text-black'>
+                        {todo.text}
+                        {console.log(todo.text)}
+                    </div>
+                    <div>
+                        <RiCloseCircleLine />
+                        <TiEdit />
+                    </div>
+                </div>
+            )
+
+        })
+    )
 }
 
 export default Todo

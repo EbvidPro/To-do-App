@@ -39,7 +39,7 @@ export default function Home() {
         <title>To Do App</title>
         <meta name="description" content="To Do list " />
       </Head>
-      <main className="flex justify-center max-h-fit h-72 bg-green-200 m-auto xl:w-1/4 md:w-2/4 w-4/5 ">
+      <main className="flex justify-center pb-6 rounded min-h-full bg-green-200 m-auto xl:w-1/4 md:w-2/4 w-5/6 ">
         <TodoList />
       </main>
       {/* <main className='pb-24'>

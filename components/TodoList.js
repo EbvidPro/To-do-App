@@ -28,8 +28,8 @@ function TodoList() {
     }
 
     return (
-        <div className='text-center italic pt-6'>
-            <h1>What&apos;s the Plan for Today</h1>
+        <div className='text-left italic p-6'>
+            <h1 className='text-center'>What&apos;s the Plan for Today</h1>
             <TodoForm onSubmit={addTodo} />
             <Todo todos={todos} completeTodo={completeTodo} />
         </div>
