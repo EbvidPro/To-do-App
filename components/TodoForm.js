@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { useState } from 'react'
-import TodoList from './TodoList';
+
 
 function TodoForm({ onSubmit }) {
     const [input, setInput] = useState([])
@@ -14,15 +14,15 @@ function TodoForm({ onSubmit }) {
         /* Preventing the default action of the form from happening. */
         e.preventDefault();
         setInput("")
-        props.onSubmit({
+        onSubmit({
             id: Math.floor(Math.random() * 10000),
             text: input
-        });
+        })
     }
 
     return (
         <form className='pt-1' onSubmit={handleSubmit}>
-            {/* <TodoList todoList={input} /> */}
+
             <input type="text"
                 placeholder="Add a task"
                 value={input}
