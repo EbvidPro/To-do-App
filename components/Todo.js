@@ -5,24 +5,39 @@ import TodoForm from './TodoForm'
 
 
 
-function Todo({ todos, completeTodo, removeTodo }) {
+function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
 
     const [edit, setEdit] = useState({
         id: null,
         values: ''
-    })
+    });
+
+    const sumbitUpdate = value => {
+        updateTodo(edit.id, value)
+        setEdit({
+            id: null,
+            value: ''
+        })
+    }
+
+    if (edit.id) {
+        return <TodoForm edit={edit} onSubmit={sumbitUpdate} />;
+    }
 
     return (
         todos.map((todo, index) => {
             return (
-                <div key={index} className={todo.isComplete ? 'todo-row complete' : 'todo-row'}>
-                    <div key={todo.id} onClick={() => completeTodo(todo.id)} className='block text-black pt-4'>
+                <div key={index} className={todo.isComplete ? 'flex justify-between mt-4 p-4 bg-old-lavender text-white rounded todo-row complete' : 'flex justify-between mt-4 p-4 bg-old-lavender text-white rounded todo-row'}>
+                    <div key={todo.id} onClick={() => completeTodo(todo.id)} className='block text-white font-bold '>
                         {todo.text}
                     </div>
                     <div className='flex'>
                         <RiCloseCircleLine
-                            onClick={() => removeTodo(todo.id)} />
-                        <TiEdit onClick={() => setEdit({ id: todo.id, value: todo.text })} />
+                            onClick={() => removeTodo(todo.id)}
+                            className='w-6 cursor-pointer' />
+                        <TiEdit
+                            onClick={() => setEdit({ id: todo.id, value: todo.text })}
+                            className='cursor-pointer' />
                     </div>
                 </div>
             )

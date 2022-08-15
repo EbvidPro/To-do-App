@@ -17,6 +17,15 @@ function TodoList() {
         setTodos(newTodo)
     };
 
+    const updateTodo = (todoId, newValue) => {
+        /* Checking if the input is empty or only contains white space. */
+        if (!newValue.text || /^\s*$/.test(newValue.text)) {
+            return
+        }
+
+        setTodos(prev => prev.map(item => (item.id === todoId ? newValue : item)))
+    }
+
     function removeTodo(id) {
         const removeArr = [...todos].filter(todo => todo.id !== id)
 
@@ -37,7 +46,7 @@ function TodoList() {
         <div className='text-left italic p-6'>
             <h1 className='text-center'>What&apos;s the Plan for Today</h1>
             <TodoForm onSubmit={addTodo} />
-            <Todo todos={todos} completeTodo={completeTodo} removeTodo={removeTodo} />
+            <Todo todos={todos} completeTodo={completeTodo} removeTodo={removeTodo} updateTodo={updateTodo} />
         </div>
     )
 }
