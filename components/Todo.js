@@ -5,7 +5,7 @@ import TodoForm from './TodoForm'
 
 
 
-function Todo({ todos, completeTodo }) {
+function Todo({ todos, completeTodo, removeTodo }) {
 
     const [edit, setEdit] = useState({
         id: null,
@@ -15,14 +15,14 @@ function Todo({ todos, completeTodo }) {
     return (
         todos.map((todo, index) => {
             return (
-                <div key={index}>
-                    <div key={todo.id} className='block text-black'>
+                <div key={index} className={todo.isComplete ? 'todo-row complete' : 'todo-row'}>
+                    <div key={todo.id} onClick={() => completeTodo(todo.id)} className='block text-black pt-4'>
                         {todo.text}
-                        {console.log(todo.text)}
                     </div>
-                    <div>
-                        <RiCloseCircleLine />
-                        <TiEdit />
+                    <div className='flex'>
+                        <RiCloseCircleLine
+                            onClick={() => removeTodo(todo.id)} />
+                        <TiEdit onClick={() => setEdit({ id: todo.id, value: todo.text })} />
                     </div>
                 </div>
             )
