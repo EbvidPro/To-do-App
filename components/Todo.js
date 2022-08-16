@@ -7,18 +7,15 @@ import TodoForm from './TodoForm'
 
 function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
 
-    // useEffect(() => {
-    //     const randColor = ['old-lavender', 'pink-lavender', 'wild-blue', 'mountbatten']
-    //     for (let i = 0; i <= randColor.length; i++) {
-    //         return randColor[i]
-    //     }
-    // }, [todos.text])
-
     const [edit, setEdit] = useState({
         id: null,
         values: ''
     });
 
+    /**
+     * When the user clicks the submit button, the updateTodo function is called with the id of the
+     * todo item and the value of the input field.
+     */
     const sumbitUpdate = value => {
         updateTodo(edit.id, value)
         setEdit({
@@ -27,6 +24,8 @@ function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
         })
     }
 
+    /* This is a ternary operator. If the edit.id is true, then the TodoForm component is rendered. If
+    it is false, then the TodoForm component is not rendered. */
     if (edit.id) {
         return <TodoForm edit={edit} onSubmit={sumbitUpdate} />;
     }
