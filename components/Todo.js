@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { RiCloseCircleLine } from 'react-icons/ri'
 import { TiEdit } from 'react-icons/ti'
 import TodoForm from './TodoForm'
@@ -6,6 +6,13 @@ import TodoForm from './TodoForm'
 
 
 function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
+
+    // useEffect(() => {
+    //     const randColor = ['old-lavender', 'pink-lavender', 'wild-blue', 'mountbatten']
+    //     for (let i = 0; i <= randColor.length; i++) {
+    //         return randColor[i]
+    //     }
+    // }, [todos.text])
 
     const [edit, setEdit] = useState({
         id: null,
@@ -31,7 +38,7 @@ function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
                     <div key={todo.id} onClick={() => completeTodo(todo.id)} className='block text-white font-bold '>
                         {todo.text}
                     </div>
-                    <div className='flex'>
+                    <div className='flex text-lg'>
                         <RiCloseCircleLine
                             onClick={() => removeTodo(todo.id)}
                             className='w-6 cursor-pointer' />
