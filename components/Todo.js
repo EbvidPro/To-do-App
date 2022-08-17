@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { RiCloseCircleLine } from 'react-icons/ri'
 import { TiEdit } from 'react-icons/ti'
 import TodoForm from './TodoForm'
+import Fade from 'react-reveal/Fade'
+import TransitionGroup from 'react-transition-group/TransitionGroup'
 
 
 
@@ -33,19 +35,23 @@ function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
     return (
         todos.map((todo, index) => {
             return (
-                <div key={index} className={todo.isComplete ? 'flex justify-between mt-4 p-4 bg-old-lavender text-white rounded todo-row complete' : 'flex justify-between mt-4 p-4 bg-old-lavender text-white rounded todo-row'}>
-                    <div key={todo.id} onClick={() => completeTodo(todo.id)} className='block text-white font-bold '>
-                        {todo.text}
-                    </div>
-                    <div className='flex text-lg'>
-                        <RiCloseCircleLine
-                            onClick={() => removeTodo(todo.id)}
-                            className='w-6 cursor-pointer' />
-                        <TiEdit
-                            onClick={() => setEdit({ id: todo.id, value: todo.text })}
-                            className='cursor-pointer' />
-                    </div>
-                </div>
+                <TransitionGroup exit enter appear='false' key={index}>
+                    <Fade top>
+                        <div className={todo.isComplete ? 'flex justify-between mt-4 p-4 bg-old-lavender text-white rounded todo-row complete' : 'flex justify-between mt-4 p-4 bg-old-lavender text-white rounded todo-row'}>
+                            <div key={todo.id} onClick={() => completeTodo(todo.id)} className='block text-left text-white font-bold '>
+                                {todo.text}
+                            </div>
+                            <div className='flex text-lg'>
+                                <RiCloseCircleLine
+                                    onClick={() => removeTodo(todo.id)}
+                                    className='w-6 cursor-pointer' />
+                                <TiEdit
+                                    onClick={() => setEdit({ id: todo.id, value: todo.text })}
+                                    className='cursor-pointer' />
+                            </div>
+                        </div>
+                    </Fade>
+                </TransitionGroup>
             )
 
         })

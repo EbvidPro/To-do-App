@@ -25,7 +25,7 @@ function TodoForm({ onSubmit, edit }) {
     }
 
     return (
-        <form className='pt-1' onSubmit={handleSubmit}>
+        <form className='pt-1' onSubmit={handleSubmit} autoComplete="off">
             {edit ? (
                 <>
                     <input type="text"
